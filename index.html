@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyecto 022 - Mockup funcional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Proyecto 022: Me gustan los PDF</h1>
+      <p>Suite de utilidades para manipular PDFs: extraer, fusionar, comprimir, OCR y convertir</p>
+    </div>
+    <div class="badges">
+      <span class="badge">Mockup funcional</span>
+      <span class="badge">Grabacion lista</span>
+      <span class="badge" id="buildBadge">Build -</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="demo">Demo</button>
+    <button class="tab" data-tab="activity">Activity</button>
+    <button class="tab" data-tab="assets">Assets</button>
+  </nav>
+
+  <main>
+    <section class="panel active" id="overview">
+      <div class="kpis" id="kpis"></div>
+      <div class="cards">
+        <article class="card">
+          <h2>Objetivo</h2>
+          <p>Suite de utilidades para manipular PDFs: extraer, fusionar, comprimir, OCR y convertir</p>
+          <p><strong>Stack:</strong> Python | PyPDF2 | pdfplumber | OCR</p>
+          <p><strong>Mejoras:</strong> Interfaz web unificada, batch processing y OCR opcional con Tesseract</p>
+        </article>
+        <article class="card">
+          <h2>Enlaces</h2>
+          <ul>
+            <li><a href="https://github.com/MutenRos/dam-022-me-gustan-pdf" target="_blank">Repo codigo</a></li>
+            <li><a href="https://github.com/MutenRos/mockup-dam-022-me-gustan-pdf" target="_blank">Repo mockup</a></li>
+            <li><a href="https://mutenros.github.io/mockup-dam-022-me-gustan-pdf/" target="_blank">GitHub Pages</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="demo">
+      <div class="actions">
+        <button id="btnGenerate">Generar contenido nuevo</button>
+        <button id="btnInsert">Insertar evento demo</button>
+        <button id="btnReset">Reset demo</button>
+      </div>
+
+      <div class="demo-grid">
+        <article class="card">
+          <h2>Pipeline</h2>
+          <ul id="pipeline"></ul>
+        </article>
+
+        <article class="card">
+          <h2>Simulador rapido</h2>
+          <form id="simForm">
+            <label>Entidad
+              <input type="text" name="entity" placeholder="cliente / documento / item" required />
+            </label>
+            <label>Accion
+              <input type="text" name="action" placeholder="creado / procesado / publicado" required />
+            </label>
+            <button type="submit">Ejecutar accion</button>
+          </form>
+          <table>
+            <thead><tr><th>Hora</th><th>Entidad</th><th>Accion</th></tr></thead>
+            <tbody id="simRows"></tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="activity">
+      <article class="card">
+        <h2>Feed de actividad</h2>
+        <ul id="feed"></ul>
+      </article>
+    </section>
+
+    <section class="panel" id="assets">
+      <article class="card">
+        <h2>Recursos navegables</h2>
+        <p class="muted">Nada de pantallas en blanco: cada recurso se abre en visor o directo.</p>
+        <div id="assetList" class="asset-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    window.MOCKUP_DATA = {"num":"022","slug":"me-gustan-pdf","title":"Me gustan los PDF","assets":[{"path":"BOE-A-2023-13221.pdf"},{"path":"README.md"},{"path":"resultado.pdf"},{"path":"006-aplicacion/action.html"},{"path":"006-aplicacion/uploads/BOE-A-2023-13221_1774881270.pdf"},{"path":"007-php y python/action.html"},{"path":"007-php y python/uploads/BOE-A-2023-13221_1774881270.pdf"},{"path":"007-php y python/uploads/BOE-A-2023-13221_20260330_143958_3604f851.pdf"},{"path":"007-php y python/uploads/BOE-A-2023-13221_20260330_144307_4c50926c.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_001.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_002.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_003.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_004.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_005.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_006.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_007.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_008.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_009.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_010.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_011.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_012.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_013.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_014.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_015.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_016.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_017.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_018.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_019.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_020.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_021.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_022.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_023.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_024.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_025.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_026.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_027.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_028.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_029.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_030.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_031.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_032.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_033.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_034.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_035.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_036.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_037.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_038.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_039.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_040.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_041.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_042.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_043.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_044.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_045.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_046.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_047.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_048.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_049.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_050.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_051.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_052.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_053.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_054.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_055.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_056.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_057.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_058.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_059.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_060.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_061.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_062.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_063.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_064.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_065.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_066.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_067.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_068.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_069.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_070.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_071.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_072.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_073.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_074.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_075.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_076.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_077.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_078.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_079.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_080.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_081.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_082.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_083.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_084.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_085.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_086.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_087.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_088.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_089.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_090.pdf"},{"path":"007-php y python/work/BOE-A-2023-13221_20260330_144307_4c50926c/pages/BOE-A-2023-13221_20260330_144307_4c50926c_pagina_091.pdf"}],"baseEvents":["Se ha refrescado la vista del panel","Se ha generado una nueva tanda de resultados","Se ha simulado una accion de usuario","Se ha abierto un recurso del proyecto","Se han actualizado los indicadores"]};
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
